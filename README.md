@@ -12,7 +12,7 @@ A lot of tutorials and what not are solid and advise well on client side cachein
 ## Usage
 ```js
 
-import ClientCachePromise from 'cache-client-promise'
+import CacheClientPromise from 'cache-client-promise'
 
 const myCache = new CacheClientPromise();
 
