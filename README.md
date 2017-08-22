@@ -12,9 +12,9 @@ A lot of tutorials and what not are solid and advise well on client side cachein
 ## Usage
 ```js
 
-import ClientCachePromise from 'client-cache-promise'
+import ClientCachePromise from 'cache-client-promise'
 
-const myCache = new ClientCachePromise();
+const myCache = new CacheClientPromise();
 
 myCache.get('article-12345', function () {
   return fetch(`/api/articles/12345`, {

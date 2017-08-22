@@ -2,6 +2,14 @@
 export default class ClientCache {
   cache = {};
 
+  clear (key: string | null = null) {
+    if (key) {
+      delete this.cache[key]
+    } else {
+      this.cache = {}
+    }
+  }
+
   resolveAllPromises (key: string, data: any) {
     this.cache[key]
       .promises

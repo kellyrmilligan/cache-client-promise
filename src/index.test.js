@@ -118,4 +118,50 @@ describe('client cache', () => {
 
   })
 
+  it('let you clear the cache', () => {
+
+    fetchMock.getOnce('/api/articles/12345', { body: mockData[0], headers: { 'content-type': 'application/json' } })
+
+    const myCache = new ClientCache();
+
+    return myCache.get('article-12345', function () {
+      return fetch(`/api/articles/12345`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+      })
+        .then(response => response.json())
+    })
+      .then((article) => {
+        myCache.clear()
+        expect(Object.keys(myCache.cache).length).toBe(0)
+      })
+
+  })
+
+  it('let you clear the cache by key', () => {
+
+    fetchMock.getOnce('/api/articles/12345', { body: mockData[0], headers: { 'content-type': 'application/json' } })
+
+    const myCache = new ClientCache();
+
+    return myCache.get('article-12345', function () {
+      return fetch(`/api/articles/12345`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+      })
+        .then(response => response.json())
+    })
+      .then((article) => {
+        myCache.clear('article-12345')
+        expect(Object.keys(myCache.cache).length).toBe(0)
+      })
+
+  })
+
 })
