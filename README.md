@@ -28,6 +28,9 @@ myCache.get('article-12345', function () {
   })
 ```
 
+check out the tests in the repo for more examples!
+
+
 This will check the cache for the key that you give to it, and if already there, will resolve immediately.
 
 If it is not yet in the cache, it will add your cache key to it's list, where it keeps a list of internal promises of everything that requests this key.
