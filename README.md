@@ -1,5 +1,9 @@
 client cache manager
 =====================
+
+[![Coverage Status](https://coveralls.io/repos/github/kellyrmilligan/cache-client-promise/badge.svg?branch=master)](https://coveralls.io/github/kellyrmilligan/cache-client-promise?branch=master)
+
+
 simple client-side cache module. helps especially when requests are being fired so fast that the same request can be fired before the same request finishes.
 
 ## Why?
