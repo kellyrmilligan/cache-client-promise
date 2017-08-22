@@ -1,4 +1,4 @@
-client cache manager
+Cache Client Promise
 =====================
 
 [![Coverage Status](https://coveralls.io/repos/github/kellyrmilligan/cache-client-promise/badge.svg?branch=master)](https://coveralls.io/github/kellyrmilligan/cache-client-promise?branch=master)

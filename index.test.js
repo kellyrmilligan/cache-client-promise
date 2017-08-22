@@ -115,5 +115,49 @@ describe('client cache', function () {
       expect(data).toBeNull();
     });
   });
+
+  it('let you clear the cache', function () {
+
+    _fetchMock2.default.getOnce('/api/articles/12345', { body: mockData[0], headers: { 'content-type': 'application/json' } });
+
+    var myCache = new _index2.default();
+
+    return myCache.get('article-12345', function () {
+      return fetch('/api/articles/12345', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+      }).then(function (response) {
+        return response.json();
+      });
+    }).then(function (article) {
+      myCache.clear();
+      expect(Object.keys(myCache.cache).length).toBe(0);
+    });
+  });
+
+  it('let you clear the cache by key', function () {
+
+    _fetchMock2.default.getOnce('/api/articles/12345', { body: mockData[0], headers: { 'content-type': 'application/json' } });
+
+    var myCache = new _index2.default();
+
+    return myCache.get('article-12345', function () {
+      return fetch('/api/articles/12345', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+      }).then(function (response) {
+        return response.json();
+      });
+    }).then(function (article) {
+      myCache.clear('article-12345');
+      expect(Object.keys(myCache.cache).length).toBe(0);
+    });
+  });
 });
 //# sourceMappingURL=index.test.js.map
