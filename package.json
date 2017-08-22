@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kellyrmilligan/hapi-react-redux.git"
+    "url": "https://github.com/kellyrmilligan/cache-client-promise.git"
   },
   "jest": {
     "roots": [
